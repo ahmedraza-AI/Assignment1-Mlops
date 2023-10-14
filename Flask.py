@@ -11,6 +11,7 @@ scaler = StandardScaler()
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    """Endpoint for making predictions based on input data."""
     try:
         data = request.get_json()
         features = data['features']
