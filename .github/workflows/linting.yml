@@ -1,0 +1,25 @@
+name: Checking code quality
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  flake8:
+    name: Run Flake8
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      run: pip install flake8
+
+    - name: Run Flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
