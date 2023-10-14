@@ -3,7 +3,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from sklearn.preprocessing import StandardScaler
 
-app = Flask(__name)
+app = Flask(__name__)
 
 # Load the trained model and scaler
 model = load_model('iris_model.h5')
